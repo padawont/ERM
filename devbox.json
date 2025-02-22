@@ -3,7 +3,8 @@
   "packages": [
     "cargo@latest",
     "nodejs@latest",
-    "pnpm@latest"
+    "pnpm@latest",
+    "python@3.10"
   ],
   "shell": {
     "init_hook": [
