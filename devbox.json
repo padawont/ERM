@@ -5,7 +5,11 @@
     "nodejs@latest",
     "pnpm@latest",
     "docker@latest",
-    "rye@latest"
+    "rye@latest",
+    "docker-compose@latest",
+    "atlas@latest",
+    "postgresql@latest",
+    "python@latest"
   ],
   "shell": {
     "init_hook": [
@@ -16,5 +20,8 @@
         "echo \"Error: no test specified\" && exit 1"
       ]
     }
+  },
+  "env": {
+    "ATLAS_DATABASE_URL": "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable"
   }
 }

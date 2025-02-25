@@ -1,0 +1,53 @@
+[project]
+name = "finance"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "ryan harris zubair", email = "ryanharriszubair@gmail.com" }
+]
+dependencies = [
+    "fastapi[standard]>=0.115.8",
+    "ruff>=0.9.7",
+    "pydantic>=2.10.6",
+    "typer>=0.15.1",
+    "psycopg2-binary>=2.9.10",
+    "psycopg[binary,pool]>=3.2.5",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/finance"]
+
+[tool.rye.scripts]
+dev = "fastapi dev /home/ryanhz/Projects/ERM/finance/src/finance/main.py"
+up = "docker-compose up -d"
+down = "docker-compose down"
+migrations_diff = """atlas migrate diff --to "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" \
+  --dev-url "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" """
+migrations_apply = """atlas migrate apply \
+  --to "file://schema.sql" \
+  --dir "file://migrations" \
+  --dev-url "docker://postgres/latest/finance_DB?user=finance_user&password=S3cret"\
+  --url "postgres://finance_user:S3cret@db:5432/finance_DB?search_path=public&sslmode=disable" """
+status = """atlas migrate status --url "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" \
+  --to "file://schema.sql" \
+  --dir "file://migrations"\
+  --dev-url "docker://postgres/latest/finance_DB?user=finance_user&password=S3cret"
+ """
+inspect  = """atlas schema inspect --url "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" > schema.sql """
+apply = """atlas schema apply --url "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" \
+  --to "file://schema.sql" \
+  --dev-url "docker://postgres/latest/finance_DB?user=finance_user&password=S3cret"
+"""
