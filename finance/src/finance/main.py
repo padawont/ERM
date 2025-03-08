@@ -31,4 +31,17 @@ def root():
 @app.get('/table_names')
 def table_names():
     conn = get_db_connection()
+    cur =conn.cusor()
+    cur.execute("""
+        SELECT table_name
+        FROM information_schema.tables
+        WHERE table_schema = 'public' AND table_type = 'BASE TABLE';
+    """)
+    table_names = cur.fecthall()
+    cur.commit()
+    return jsonify(table_names)
+
+
+
     
+
