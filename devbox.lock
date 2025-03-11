@@ -462,6 +462,10 @@
         }
       }
     },
+    "postgrest": {
+      "resolved": "github:NixOS/nixpkgs/dad564433178067be1fbdfcce23b546254b6d641?narHash=sha256-vn285HxnnlHLWnv59Og7muqECNMS33mWLM14soFIv2g%3D#postgrest",
+      "source": "nixpkg"
+    },
     "python@3.12.8": {
       "last_modified": "2025-01-06T03:40:18Z",
       "plugin_version": "0.0.4",

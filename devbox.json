@@ -9,7 +9,8 @@
     "docker-compose@latest",
     "atlas@latest",
     "postgresql@latest",
-    "python@3.12.8"
+    "python@3.12.8",
+    "postgrest"
   ],
   "shell": {
     "init_hook": [

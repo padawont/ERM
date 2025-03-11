@@ -37,10 +37,9 @@ down = "docker-compose down"
 migrations_diff = """atlas migrate diff --to "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" \
   --dev-url "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" """
 migrations_apply = """atlas migrate apply \
-  --to "file://schema.sql" \
   --dir "file://migrations" \
-  --dev-url "docker://postgres/latest/finance_DB?user=finance_user&password=S3cret"\
-  --url "postgres://finance_user:S3cret@db:5432/finance_DB?search_path=public&sslmode=disable" """
+  --url "postgres://finance_user:S3cret@db:5432/finance_DB?search_path=public&sslmode=disable"
+"""
 status = """atlas migrate status --url "postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable" \
   --to "file://schema.sql" \
   --dir "file://migrations"\
