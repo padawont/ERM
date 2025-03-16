@@ -4,3 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+prost = "0.13.5"
+tokio = "1.44.1"
+tonic = {version= "0.12.3", features = ['full']}
+
+[build-dependencies]
+tonic-build = "0.6"
