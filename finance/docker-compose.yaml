@@ -21,14 +21,4 @@ services:
     environment:
       ADMINER_DEFAULT_SERVER: db
 
-  postgrest:
-    image: postgrest/postgrest
-    restart: always
-    environment:
-      PGRST_DB_URI: postgres://finance_user:S3cret@db:5432/finance_DB
-      PGRST_DB_SCHEMA: public
-      PGRST_DB_ANON_ROLE: finance_user
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
+ 
