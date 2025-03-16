@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ~/finance/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=finance_user
+      - POSTGRES_DB=finance_DB
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+
+ 
