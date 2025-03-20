@@ -1,0 +1,1 @@
+{"rustc":943729520361454143,"features":"","declared_features":"","target":0,"profile":0,"path":0,"deps":[[4706365343940948004,"build_script_build",false,14837491189031626799]],"local":[{"RerunIfChanged":{"output":"debug/build/client-8aec1109d66ea330/output","paths":["../proto/voting.proto","../proto"]}}],"rustflags":[],"config":0,"compile_kind":0}

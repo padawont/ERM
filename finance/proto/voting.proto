@@ -1,21 +1,20 @@
 syntax = "proto3";
-package voting; 
+package voting;
 
-serverice Voting {
-    rpc Vote (VotingResquest) returns (VotingResponse);
+service Voting {
+    rpc Vote (VotingRequest) returns (VotingResponse);
 }
 
+message VotingRequest {
+  string url = 1;
 
-message VotingResquest {
-    string url = 1;
-    enum Vote = {
+    enum Vote {
         UP = 0;
         DOWN = 1;
     }
-    Vote vote  = 2; 
-
+    Vote vote = 2;    
 }
 
 message VotingResponse {
-    string confirmation = 1 ; 
+    string confirmation = 1;
 }
