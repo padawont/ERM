@@ -1,53 +1,9 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "atlas@latest": {
-      "last_modified": "2025-03-11T17:52:14Z",
-      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#atlas",
-      "source": "devbox-search",
-      "version": "0.32.0",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/8687mfbgraammz92gwqi530ybspp7jvz-atlas-0.32.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/8687mfbgraammz92gwqi530ybspp7jvz-atlas-0.32.0"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/db12nnq5ma4zhqx5yj2izgmb6mfk39gg-atlas-0.32.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/db12nnq5ma4zhqx5yj2izgmb6mfk39gg-atlas-0.32.0"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/6f2y02vcdhbna14vy31k9fk5wclkyczm-atlas-0.32.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/6f2y02vcdhbna14vy31k9fk5wclkyczm-atlas-0.32.0"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/gnsfvdr1p9r4s46n8861xlx3iyyfazik-atlas-0.32.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/gnsfvdr1p9r4s46n8861xlx3iyyfazik-atlas-0.32.0"
-        }
-      }
+    "atlas": {
+      "resolved": "github:NixOS/nixpkgs/573c650e8a14b2faa0041645ab18aed7e60f0c9a?narHash=sha256-4thdbnP6dlbdq%2BqZWTsm4ffAwoS8Tiq1YResB%2BRP6WE%3D#atlas",
+      "source": "nixpkg"
     },
     "cargo@latest": {
       "last_modified": "2025-03-11T17:52:14Z",
@@ -531,54 +487,6 @@
             }
           ],
           "store_path": "/nix/store/c9m6yd8fg1flz2j5r4bif1ib5j20a0cy-python3-3.12.8"
-        }
-      }
-    },
-    "rye@latest": {
-      "last_modified": "2025-03-11T17:52:14Z",
-      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#rye",
-      "source": "devbox-search",
-      "version": "0.44.0",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/1abrh4rmg3dyf0aj4i4xwap2ly9n9288-rye-0.44.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/1abrh4rmg3dyf0aj4i4xwap2ly9n9288-rye-0.44.0"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/ir73vdrmqmrd7kl7ky5nc5vmv5ljgl7r-rye-0.44.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/ir73vdrmqmrd7kl7ky5nc5vmv5ljgl7r-rye-0.44.0"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/j26s967rgs1bxsqph3bmpdgdalhwpbfx-rye-0.44.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/j26s967rgs1bxsqph3bmpdgdalhwpbfx-rye-0.44.0"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/j7ajx8qcgw0sjjydgw05z595zy7z2hnp-rye-0.44.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/j7ajx8qcgw0sjjydgw05z595zy7z2hnp-rye-0.44.0"
         }
       }
     }
