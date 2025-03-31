@@ -6,4 +6,6 @@ edition = "2021"
 [dependencies]
 actix-web = "4"
 diesel = "2.2.8"
+diesel_cli = { version = "2.2.8", default-features = false, features = ["postgres"] }
+
 
