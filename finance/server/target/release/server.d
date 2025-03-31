@@ -1,1 +1,0 @@
-/home/ryanhz/Projects/ERM/finance/server/target/release/server: /home/ryanhz/Projects/ERM/finance/server/../proto /home/ryanhz/Projects/ERM/finance/server/../proto/voting.proto /home/ryanhz/Projects/ERM/finance/server/build.rs /home/ryanhz/Projects/ERM/finance/server/src/main.rs /home/ryanhz/Projects/ERM/finance/server/target/release/build/server-85908d1c9dc5cf8a/out/voting.rs

@@ -32,7 +32,7 @@
       "financeDB_UP": "docker-compose -f /home/ryanhz/Projects/ERM/finance/docker-compose.yaml up -d",
       "financeDB_DOWN": "docker-compose -f /home/ryanhz/Projects/ERM/finance/docker-compose.yaml down",
       "financeDB_inspect": "atlas schema inspect -u \"postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable\" --format '{{ sql . }}' > schema.sql ",
-      "financeDB_apply": "atlas schema apply  -u \"postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable\"  --to file://finance/schema.sql --dev-url \"sqlite://dev.db\""
+      "financeDB_apply": "atlas schema apply  -u \"postgres://finance_user:S3cret@localhost:5432/finance_DB?sslmode=disable\"  --to file://finance/schema.sql --dev-url \"docker://postgres/15/example\""
     }
   },
   "env": {

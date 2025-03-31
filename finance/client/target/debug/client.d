@@ -1,1 +1,0 @@
-/home/ryanhz/Projects/ERM/finance/client/target/debug/client: /home/ryanhz/Projects/ERM/finance/client/../proto /home/ryanhz/Projects/ERM/finance/client/../proto/voting.proto /home/ryanhz/Projects/ERM/finance/client/build.rs /home/ryanhz/Projects/ERM/finance/client/src/main.rs /home/ryanhz/Projects/ERM/finance/client/target/debug/build/client-ecd4c4ad4f892ab9/out/voting.rs
