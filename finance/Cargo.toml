@@ -1,0 +1,15 @@
+[package]
+name = "grpc-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"
+bigdecimal = "0.4.8"
+diesel = "2.2.8"
+chrono = { version = "0.4", features = ["serde"] }
+diesel_cli = { version = "2.2.8", default-features = false, features = ["postgres"] }
+dotenv = "0.15.0"
+dotenvy = "0.15.7"
+
+

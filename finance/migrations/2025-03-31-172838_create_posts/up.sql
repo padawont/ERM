@@ -1,3 +1,4 @@
+-- Your SQL goes here
 -- Create Tables
 CREATE TABLE company (
     id SERIAL PRIMARY KEY,
