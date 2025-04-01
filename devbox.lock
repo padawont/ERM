@@ -1,10 +1,6 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "atlas": {
-      "resolved": "github:NixOS/nixpkgs/573c650e8a14b2faa0041645ab18aed7e60f0c9a?narHash=sha256-4thdbnP6dlbdq%2BqZWTsm4ffAwoS8Tiq1YResB%2BRP6WE%3D#atlas",
-      "source": "nixpkg"
-    },
     "cargo@latest": {
       "last_modified": "2025-03-11T17:52:14Z",
       "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#cargo",
@@ -415,21 +411,6 @@
             }
           ],
           "store_path": "/nix/store/fi1qz98nl8q7ddwbbms5xssywn44ackc-postgresql-17.4"
-        }
-      }
-    },
-    "postgrest": {
-      "resolved": "github:NixOS/nixpkgs/dad564433178067be1fbdfcce23b546254b6d641?narHash=sha256-vn285HxnnlHLWnv59Og7muqECNMS33mWLM14soFIv2g%3D#postgrest",
-      "source": "nixpkg",
-      "systems": {
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "bin",
-              "path": "/nix/store/3b6q63n2jcjjsg19g1h3300xwmjaqwdv-postgrest-12.0.3-bin",
-              "default": true
-            }
-          ]
         }
       }
     },
