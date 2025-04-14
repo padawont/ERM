@@ -1,0 +1,82 @@
+syntax = "proto3";
+package company_account;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message CompanyAccount {
+    int32 id = 1;
+    int32 company_id = 2;
+    int32 account_id = 3;
+}
+
+// POST message
+message CreateCompanyAccountRequest {
+    int32 company_id = 1;
+    int32 account_id = 2;
+}
+
+message CreateCompanyAccountResponse {
+    CompanyAccount company_account = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetCompanyAccountRequest {
+    int32 id = 1;
+}
+
+message GetCompanyAccountResponse {
+    CompanyAccount company_account = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListCompanyAccountsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListCompanyAccountsResponse {
+    repeated CompanyAccount company_accounts = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateCompanyAccountRequest {
+    int32 id = 1;
+    int32 company_id = 2;
+    int32 account_id = 3;
+}
+
+message UpdateCompanyAccountResponse {
+    CompanyAccount company_account = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteCompanyAccountRequest {
+    int32 id = 1;
+}
+
+message DeleteCompanyAccountResponse {
+    bool success = 1;
+    string message = 2;
+}

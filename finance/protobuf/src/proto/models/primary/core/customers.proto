@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package customer;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message Customer {
+    int32 id = 1;
+    string phone_number = 2;
+    string email = 3;
+}
+
+// POST message
+message CreateCustomerRequest {
+    string phone_number = 1;
+    string email = 2;
+}
+
+message CreateCustomerResponse {
+    Customer customer = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetCustomerRequest {
+    int32 id = 1; 
+}
+
+message GetCustomerResponse {
+    Customer customer = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListCustomersRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListCustomersResponse {
+    repeated Customer customers = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateCustomerRequest {
+    int32 id = 1;
+    string phone_number = 2;
+    string email = 3;
+}
+
+message UpdateCustomerResponse {
+    Customer customer = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteCustomerRequest {
+    int32 id = 1;
+}
+
+message DeleteCustomerResponse {
+    bool success = 1;
+    string message = 2;
+}

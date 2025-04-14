@@ -1,0 +1,82 @@
+syntax = "proto3";
+package incoterm;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message Incoterm {
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+// POST message
+message CreateIncotermRequest {
+    string name = 1;
+    string description = 2;
+}
+
+message CreateIncotermResponse {
+    Incoterm incoterm = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetIncotermRequest {
+    int32 id = 1;
+}
+
+message GetIncotermResponse {
+    Incoterm incoterm = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListIncotermsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListIncotermsResponse {
+    repeated Incoterm incoterms = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateIncotermRequest {
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message UpdateIncotermResponse {
+    Incoterm incoterm = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteIncotermRequest {
+    int32 id = 1;
+}
+
+message DeleteIncotermResponse {
+    bool success = 1;
+    string message = 2;
+}

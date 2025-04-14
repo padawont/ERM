@@ -1,0 +1,88 @@
+syntax = "proto3";
+package location;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message Location {
+    int32 id = 1;
+    int32 office_id = 2;
+    string address = 3;
+    string city = 4;
+    string country = 5;
+}
+
+// POST message
+message CreateLocationRequest {
+    int32 office_id = 1;
+    string address = 2;
+    string city = 3;
+    string country = 4;
+}
+
+message CreateLocationResponse {
+    Location location = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetLocationRequest {
+    int32 id = 1;
+}
+
+message GetLocationResponse {
+    Location location = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListLocationsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListLocationsResponse {
+    repeated Location locations = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateLocationRequest {
+    int32 id = 1;
+    int32 office_id = 2;
+    string address = 3;
+    string city = 4;
+    string country = 5;
+}
+
+message UpdateLocationResponse {
+    Location location = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteLocationRequest {
+    int32 id = 1;
+}
+
+message DeleteLocationResponse {
+    bool success = 1;
+    string message = 2;
+}
