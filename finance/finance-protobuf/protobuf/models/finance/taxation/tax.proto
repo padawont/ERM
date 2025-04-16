@@ -1,0 +1,88 @@
+syntax = "proto3";
+package models.finace.taxation.tax ;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message Tax {
+    int32 id = 1;
+    int32 account_id = 2;
+    int32 location_id = 3;
+    double tax_rate = 4;    // Using double for numeric
+    double tax_total = 5;   // Using double for numeric
+}
+
+// POST message
+message CreateTaxRequest {
+    int32 account_id = 1;
+    int32 location_id = 2;
+    double tax_rate = 3;
+    double tax_total = 4;
+}
+
+message CreateTaxResponse {
+    Tax tax = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetTaxRequest {
+    int32 id = 1;
+}
+
+message GetTaxResponse {
+    Tax tax = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListTaxesRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListTaxesResponse {
+    repeated Tax taxes = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateTaxRequest {
+    int32 id = 1;
+    int32 account_id = 2;
+    int32 location_id = 3;
+    double tax_rate = 4;
+    double tax_total = 5;
+}
+
+message UpdateTaxResponse {
+    Tax tax = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteTaxRequest {
+    int32 id = 1;
+}
+
+message DeleteTaxResponse {
+    bool success = 1;
+    string message = 2;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/relationship/company/office.proto";
+package functions.relationship.company.office;
+
+service OfficeService {
+  rpc CreateOffice(models.relationship.company.office.CreateOfficeRequest) returns (models.relationship.company.office.CreateOfficeResponse);
+  rpc GetOffice(models.relationship.company.office.GetOfficeRequest) returns (models.relationship.company.office.GetOfficeResponse);
+  rpc ListOffices(models.relationship.company.office.ListOfficesRequest) returns (models.relationship.company.office.ListOfficesResponse);
+  rpc UpdateOffice(models.relationship.company.office.UpdateOfficeRequest) returns (models.relationship.company.office.UpdateOfficeResponse);
+  rpc DeleteOffice(models.relationship.company.office.DeleteOfficeRequest) returns (models.relationship.company.office.DeleteOfficeResponse);
+}

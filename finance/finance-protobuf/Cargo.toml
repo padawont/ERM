@@ -1,0 +1,12 @@
+[package]
+name = "finance-protobuf"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+prost = "0.13"         # for using generated structs
+tonic = "0.13.0"
+
+[build-dependencies]
+prost-build = "0.13" 
+tonic-build = "0.13.0"

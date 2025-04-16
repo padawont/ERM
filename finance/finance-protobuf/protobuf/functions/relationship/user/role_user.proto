@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/relationship/user/role_user.proto";
+package functions.relationship.user.role_user;
+
+service RoleUserService {
+  rpc CreateRoleUser(models.relationship.user.role_user.CreateRoleUserRequest) returns (models.relationship.user.role_user.CreateRoleUserResponse);
+  rpc GetRoleUser(models.relationship.user.role_user.GetRoleUserRequest) returns (models.relationship.user.role_user.GetRoleUserResponse);
+  rpc ListRoleUsers(models.relationship.user.role_user.ListRoleUsersRequest) returns (models.relationship.user.role_user.ListRoleUsersResponse);
+  rpc UpdateRoleUser(models.relationship.user.role_user.UpdateRoleUserRequest) returns (models.relationship.user.role_user.UpdateRoleUserResponse);
+  rpc DeleteRoleUser(models.relationship.user.role_user.DeleteRoleUserRequest) returns (models.relationship.user.role_user.DeleteRoleUserResponse);
+}

@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package models.primary.core.vendor ;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message Vendor {
+    int32 id = 1;
+    string email = 2;
+    string phone_number = 3;
+}
+
+// POST message
+message CreateVendorRequest {
+    string email = 1;
+    string phone_number = 2;
+}
+
+message CreateVendorResponse {
+    Vendor vendor = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetVendorRequest {
+    int32 id = 1;
+
+}
+
+message GetVendorResponse {
+    Vendor vendor = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListVendorsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListVendorsResponse {
+    repeated Vendor vendors = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateVendorRequest {
+    int32 id = 1;
+    string email = 2;
+    string phone_number = 3;
+}
+
+message UpdateVendorResponse {
+    Vendor vendor = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteVendorRequest {
+    int32 id = 1;
+}
+
+message DeleteVendorResponse {
+    bool success = 1;
+    string message = 2;
+}

@@ -1,0 +1,82 @@
+syntax = "proto3";
+package models.relationship.user.role_permission ;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message RolePermission {
+    int32 id = 1;
+    int32 permission_id = 2;
+    int32 role_id = 3;
+}
+
+// POST message
+message CreateRolePermissionRequest {
+    int32 permission_id = 1;
+    int32 role_id = 2;
+}
+
+message CreateRolePermissionResponse {
+    RolePermission role_permission = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetRolePermissionRequest {
+    int32 id = 1;
+}
+
+message GetRolePermissionResponse {
+    RolePermission role_permission = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListRolePermissionsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListRolePermissionsResponse {
+    repeated RolePermission role_permissions = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateRolePermissionRequest {
+    int32 id = 1;
+    int32 permission_id = 2;
+    int32 role_id = 3;
+}
+
+message UpdateRolePermissionResponse {
+    RolePermission role_permission = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteRolePermissionRequest {
+    int32 id = 1;
+}
+
+message DeleteRolePermissionResponse {
+    bool success = 1;
+    string message = 2;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/account/payable_receivable/account_payable_vendor.proto";
+package functions.account.payable_receivable.account_payable_vendor;
+
+service AccountPayableVendorService {
+  rpc CreateAccountPayableVendor(models.account.payable_receivable.account_payable_vendor.CreateAccountPayableVendorRequest) returns (models.account.payable_receivable.account_payable_vendor.CreateAccountPayableVendorResponse);
+  rpc GetAccountPayableVendor(models.account.payable_receivable.account_payable_vendor.GetAccountPayableVendorRequest) returns (models.account.payable_receivable.account_payable_vendor.GetAccountPayableVendorResponse);
+  rpc ListAccountPayableVendors(models.account.payable_receivable.account_payable_vendor.ListAccountPayableVendorsRequest) returns (models.account.payable_receivable.account_payable_vendor.ListAccountPayableVendorsResponse);
+  rpc UpdateAccountPayableVendor(models.account.payable_receivable.account_payable_vendor.UpdateAccountPayableVendorRequest) returns (models.account.payable_receivable.account_payable_vendor.UpdateAccountPayableVendorResponse);
+  rpc DeleteAccountPayableVendor(models.account.payable_receivable.account_payable_vendor.DeleteAccountPayableVendorRequest) returns (models.account.payable_receivable.account_payable_vendor.DeleteAccountPayableVendorResponse);
+}

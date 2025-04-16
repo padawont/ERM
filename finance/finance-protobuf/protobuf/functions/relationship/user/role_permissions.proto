@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/relationship/user/role_permissions.proto";
+package functions.relationship.user.role_permission;
+
+service RolePermissionService {
+  rpc CreateRolePermission(models.relationship.user.role_permission.CreateRolePermissionRequest) returns (models.relationship.user.role_permission.CreateRolePermissionResponse);
+  rpc GetRolePermission(models.relationship.user.role_permission.GetRolePermissionRequest) returns (models.relationship.user.role_permission.GetRolePermissionResponse);
+  rpc ListRolePermissions(models.relationship.user.role_permission.ListRolePermissionsRequest) returns (models.relationship.user.role_permission.ListRolePermissionsResponse);
+  rpc UpdateRolePermission(models.relationship.user.role_permission.UpdateRolePermissionRequest) returns (models.relationship.user.role_permission.UpdateRolePermissionResponse);
+  rpc DeleteRolePermission(models.relationship.user.role_permission.DeleteRolePermissionRequest) returns (models.relationship.user.role_permission.DeleteRolePermissionResponse);
+}

@@ -1,0 +1,82 @@
+syntax = "proto3";
+package models.account.payable_receivable.account_payable_vendor;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message AccountPayableVendor {
+    int32 id = 1;
+    int32 account_payable_id = 2;
+    int32 vendor_id = 3;
+}
+
+// POST message
+message CreateAccountPayableVendorRequest {
+    int32 account_payable_id = 1;
+    int32 vendor_id = 2;
+}
+
+message CreateAccountPayableVendorResponse {
+    AccountPayableVendor account_payable_vendor = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetAccountPayableVendorRequest {
+    int32 id = 1;
+}
+
+message GetAccountPayableVendorResponse {
+    AccountPayableVendor account_payable_vendor = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListAccountPayableVendorsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListAccountPayableVendorsResponse {
+    repeated AccountPayableVendor account_payable_vendors = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateAccountPayableVendorRequest {
+    int32 id = 1;
+    int32 account_payable_id = 2;
+    int32 vendor_id = 3;
+}
+
+message UpdateAccountPayableVendorResponse {
+    AccountPayableVendor account_payable_vendor = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteAccountPayableVendorRequest {
+    int32 id = 1;
+}
+
+message DeleteAccountPayableVendorResponse {
+    bool success = 1;
+    string message = 2;
+}

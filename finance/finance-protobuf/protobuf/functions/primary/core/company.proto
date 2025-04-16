@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/core/company.proto";
+package functions.primary.core.company;
+
+service CompanyService {
+  rpc CreateCompany(models.primary.core.company.CreateCompanyRequest) returns (models.primary.core.company.CreateCompanyResponse);
+  rpc GetCompany(models.primary.core.company.GetCompanyRequest) returns (models.primary.core.company.GetCompanyResponse);
+  rpc ListCompanies(models.primary.core.company.ListCompaniesRequest) returns (models.primary.core.company.ListCompaniesResponse);
+  rpc UpdateCompany(models.primary.core.company.UpdateCompanyRequest) returns (models.primary.core.company.UpdateCompanyResponse);
+  rpc DeleteCompany(models.primary.core.company.DeleteCompanyRequest) returns (models.primary.core.company.DeleteCompanyResponse);
+}

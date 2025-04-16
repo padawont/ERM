@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/finance/transaction/checks.proto";
+package functions.finance.transaction.check;
+
+service CheckService {
+  rpc CreateCheck(models.finace.transaction.check.CreateCheckRequest) returns (models.finace.transaction.check.CreateCheckResponse);
+  rpc GetCheck(models.finace.transaction.check.GetCheckRequest) returns (models.finace.transaction.check.GetCheckResponse);
+  rpc ListChecks(models.finace.transaction.check.ListChecksRequest) returns (models.finace.transaction.check.ListChecksResponse);
+  rpc UpdateCheck(models.finace.transaction.check.UpdateCheckRequest) returns (models.finace.transaction.check.UpdateCheckResponse);
+  rpc DeleteCheck(models.finace.transaction.check.DeleteCheckRequest) returns (models.finace.transaction.check.DeleteCheckResponse);
+}

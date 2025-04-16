@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/finance/taxation/tax.proto";
+package functions.finance.taxation.tax;
+
+service TaxService {
+  rpc CreateTax(models.finace.taxation.tax.CreateTaxRequest) returns (models.finace.taxation.tax.CreateTaxResponse);
+  rpc GetTax(models.finace.taxation.tax.GetTaxRequest) returns (models.finace.taxation.tax.GetTaxResponse);
+  rpc ListTaxes(models.finace.taxation.tax.ListTaxesRequest) returns (models.finace.taxation.tax.ListTaxesResponse);
+  rpc UpdateTax(models.finace.taxation.tax.UpdateTaxRequest) returns (models.finace.taxation.tax.UpdateTaxResponse);
+  rpc DeleteTax(models.finace.taxation.tax.DeleteTaxRequest) returns (models.finace.taxation.tax.DeleteTaxResponse);
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/relationship/company/location.proto";
+package functions.relationship.company.location;
+
+service LocationService {
+  rpc CreateLocation(models.relationship.company.location.CreateLocationRequest) returns (models.relationship.company.location.CreateLocationResponse);
+  rpc GetLocation(models.relationship.company.location.GetLocationRequest) returns (models.relationship.company.location.GetLocationResponse);
+  rpc ListLocations(models.relationship.company.location.ListLocationsRequest) returns (models.relationship.company.location.ListLocationsResponse);
+  rpc UpdateLocation(models.relationship.company.location.UpdateLocationRequest) returns (models.relationship.company.location.UpdateLocationResponse);
+  rpc DeleteLocation(models.relationship.company.location.DeleteLocationRequest) returns (models.relationship.company.location.DeleteLocationResponse);
+}

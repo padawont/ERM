@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/account/payable_receivable/account_receivable.proto";
+package functions.account.payable_receivable.account_receivable;
+
+service AccountReceivableService {
+  rpc CreateAccountReceivable(models.account.payable_receivable.account_receivable.CreateAccountReceivableRequest) returns (models.account.payable_receivable.account_receivable.CreateAccountReceivableResponse);
+  rpc GetAccountReceivable(models.account.payable_receivable.account_receivable.GetAccountReceivableRequest) returns (models.account.payable_receivable.account_receivable.GetAccountReceivableResponse);
+  rpc ListAccountReceivables(models.account.payable_receivable.account_receivable.ListAccountReceivablesRequest) returns (models.account.payable_receivable.account_receivable.ListAccountReceivablesResponse);
+  rpc UpdateAccountReceivable(models.account.payable_receivable.account_receivable.UpdateAccountReceivableRequest) returns (models.account.payable_receivable.account_receivable.UpdateAccountReceivableResponse);
+  rpc DeleteAccountReceivable(models.account.payable_receivable.account_receivable.DeleteAccountReceivableRequest) returns (models.account.payable_receivable.account_receivable.DeleteAccountReceivableResponse);
+}

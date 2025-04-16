@@ -1,0 +1,91 @@
+syntax = "proto3";
+package models.account.core.account;
+
+
+// Basic support messages for filtering & sorting
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// Core message representing the account table
+message Account {
+    int32 id = 1;
+    int32 currency_id = 2;
+    float credit = 3;
+    float debit = 4;
+    string account_type = 5;
+    string created_at = 6;
+}
+
+// Create
+message CreateAccountRequest {
+    int32 currency_id = 1;
+    float credit = 2;
+    float debit = 3;
+    string account_type = 4;
+    string created_at = 5;
+}
+
+message CreateAccountResponse {
+    Account account = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// Read (single)
+message GetAccountRequest {
+    int32 id = 1;
+}
+message GetAccountResponse {
+    Account account = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// Read (list)
+message ListAccountsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+message ListAccountsResponse {
+    repeated Account accounts = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// Update
+message UpdateAccountRequest {
+    int32 id = 1;
+    int32 currency_id = 2;
+    float credit = 3;
+    float debit = 4;
+    string account_type = 5;
+    string created_at = 6;
+}
+message UpdateAccountResponse {
+    Account account = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// Delete
+message DeleteAccountRequest {
+    int32 id = 1;
+}
+message DeleteAccountResponse {
+    bool success = 1;
+    string message = 2;
+}
+

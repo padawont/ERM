@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/finance/transaction/income.proto";
+package functions.finance.transaction.income;
+
+service IncomeService {
+  rpc CreateIncome(models.finace.transaction.income.CreateIncomeRequest) returns (models.finace.transaction.income.CreateIncomeResponse);
+  rpc GetIncome(models.finace.transaction.income.GetIncomeRequest) returns (models.finace.transaction.income.GetIncomeResponse);
+  rpc ListIncomes(models.finace.transaction.income.ListIncomesRequest) returns (models.finace.transaction.income.ListIncomesResponse);
+  rpc UpdateIncome(models.finace.transaction.income.UpdateIncomeRequest) returns (models.finace.transaction.income.UpdateIncomeResponse);
+  rpc DeleteIncome(models.finace.transaction.income.DeleteIncomeRequest) returns (models.finace.transaction.income.DeleteIncomeResponse);
+}

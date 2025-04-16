@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/finance/core/list_item.proto";
+package functions.finance.core.list_item;
+
+service ListItemService {
+  rpc CreateListItem(models.finace.core.list_item.CreateListItemRequest) returns (models.finace.core.list_item.CreateListItemResponse);
+  rpc GetListItem(models.finace.core.list_item.GetListItemRequest) returns (models.finace.core.list_item.GetListItemResponse);
+  rpc ListListItems(models.finace.core.list_item.ListListItemsRequest) returns (models.finace.core.list_item.ListListItemsResponse);
+  rpc UpdateListItem(models.finace.core.list_item.UpdateListItemRequest) returns (models.finace.core.list_item.UpdateListItemResponse);
+  rpc DeleteListItem(models.finace.core.list_item.DeleteListItemRequest) returns (models.finace.core.list_item.DeleteListItemResponse);
+}

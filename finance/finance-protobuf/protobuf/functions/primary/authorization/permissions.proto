@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/authorization/permissions.proto";
+package functions.primary.authorization.permission;
+
+service PermissionService {
+  rpc CreatePermission(models.primary.authoization.permission.CreatePermissionRequest) returns (models.primary.authoization.permission.CreatePermissionResponse);
+  rpc GetPermission(models.primary.authoization.permission.GetPermissionRequest) returns (models.primary.authoization.permission.GetPermissionResponse);
+  rpc ListPermissions(models.primary.authoization.permission.ListPermissionsRequest) returns (models.primary.authoization.permission.ListPermissionsResponse);
+  rpc UpdatePermission(models.primary.authoization.permission.UpdatePermissionRequest) returns (models.primary.authoization.permission.UpdatePermissionResponse);
+  rpc DeletePermission(models.primary.authoization.permission.DeletePermissionRequest) returns (models.primary.authoization.permission.DeletePermissionResponse);
+}

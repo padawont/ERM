@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package models.primary.reference.currency ;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message Currency {
+    int32 id = 1;
+    string currency_name = 2;
+    string currency_code = 3;
+    string country = 4;
+    double exchange_rate = 5;  // Using double for numeric
+}
+
+// POST message
+message CreateCurrencyRequest {
+    string currency_name = 1;
+    string currency_code = 2;
+    string country = 3;
+    double exchange_rate = 4;
+}
+
+message CreateCurrencyResponse {
+    Currency currency = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetCurrencyRequest {
+    int32 id = 1;
+
+}
+
+message GetCurrencyResponse {
+    Currency currency = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListCurrenciesRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListCurrenciesResponse {
+    repeated Currency currencies = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateCurrencyRequest {
+    int32 id = 1;
+    string currency_name = 2;
+    string currency_code = 3;
+    string country = 4;
+    double exchange_rate = 5;
+}
+
+message UpdateCurrencyResponse {
+    Currency currency = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteCurrencyRequest {
+    int32 id = 1;
+}
+
+message DeleteCurrencyResponse {
+    bool success = 1;
+    string message = 2;
+}

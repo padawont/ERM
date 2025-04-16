@@ -1,0 +1,88 @@
+syntax = "proto3";
+package models.account.core.finance_period;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message FinancePeriod {
+    int32 id = 1;
+    int32 account_id = 2;
+    string start_date = 3;  // Using string for date
+    string end_date = 4;    // Using string for date
+    string status = 5;      // Using string for bpchar
+}
+
+// POST message
+message CreateFinancePeriodRequest {
+    int32 account_id = 1;
+    string start_date = 2;
+    string end_date = 3;
+    string status = 4;
+}
+
+message CreateFinancePeriodResponse {
+    FinancePeriod finance_period = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetFinancePeriodRequest {
+    int32 id = 1;
+}
+
+message GetFinancePeriodResponse {
+    FinancePeriod finance_period = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListFinancePeriodsRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListFinancePeriodsResponse {
+    repeated FinancePeriod finance_periods = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateFinancePeriodRequest {
+    int32 id = 1;
+    int32 account_id = 2;
+    string start_date = 3;
+    string end_date = 4;
+    string status = 5;
+}
+
+message UpdateFinancePeriodResponse {
+    FinancePeriod finance_period = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteFinancePeriodRequest {
+    int32 id = 1;
+}
+
+message DeleteFinancePeriodResponse {
+    bool success = 1;
+    string message = 2;
+}
