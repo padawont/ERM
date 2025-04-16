@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/account/core/finance_period.proto";
+
+package functions.account.core.finance_period;
+
+service FinancePeriodService {
+  rpc CreateFinancePeriod(models.account.core.finance_period.CreateFinancePeriodRequest) returns (models.account.core.finance_period.CreateFinancePeriodResponse);
+  rpc GetFinancePeriod(models.account.core.finance_period.GetFinancePeriodRequest) returns (models.account.core.finance_period.GetFinancePeriodResponse);
+  rpc ListFinancePeriods(models.account.core.finance_period.ListFinancePeriodsRequest) returns (models.account.core.finance_period.ListFinancePeriodsResponse);
+  rpc UpdateFinancePeriod(models.account.core.finance_period.UpdateFinancePeriodRequest) returns (models.account.core.finance_period.UpdateFinancePeriodResponse);
+  rpc DeleteFinancePeriod(models.account.core.finance_period.DeleteFinancePeriodRequest) returns (models.account.core.finance_period.DeleteFinancePeriodResponse);
+}

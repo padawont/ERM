@@ -1,0 +1,91 @@
+syntax = "proto3";
+package models.account.payable_receivable.account_receivable;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message AccountReceivable {
+    int32 id = 1;
+    int32 currency_id = 2;
+    string due_date = 3;  // Using string for date
+    string status = 4;    // Using string for bpchar
+    string terms = 5;
+    double amount = 6;    // Using double for numeric
+}
+
+// POST message
+message CreateAccountReceivableRequest {
+    int32 currency_id = 1;
+    string due_date = 2;
+    string status = 3;
+    string terms = 4;
+    double amount = 5;
+}
+
+message CreateAccountReceivableResponse {
+    AccountReceivable account_receivable = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetAccountReceivableRequest {
+    int32 id = 1;
+}
+
+message GetAccountReceivableResponse {
+    AccountReceivable account_receivable = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListAccountReceivablesRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListAccountReceivablesResponse {
+    repeated AccountReceivable account_receivables = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateAccountReceivableRequest {
+    int32 id = 1;
+    int32 currency_id = 2;
+    string due_date = 3;
+    string status = 4;
+    string terms = 5;
+    double amount = 6;
+}
+
+message UpdateAccountReceivableResponse {
+    AccountReceivable account_receivable = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteAccountReceivableRequest {
+    int32 id = 1;
+}
+
+message DeleteAccountReceivableResponse {
+    bool success = 1;
+    string message = 2;
+}

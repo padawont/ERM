@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package models.primary.core.user ;
+
+message Filter {
+    string field = 1;
+    string operator = 2;  
+    string value = 3;
+}
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+// core 
+message User {
+    int32 id = 1;    
+    string email_address = 2;
+    string name = 3;
+}
+
+// post 
+message CreateUserRequest {
+    string email_address = 1;
+    string name = 2;
+}
+
+message CreateUserResponse {
+    User user = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ
+message GetUserRequest {
+    int32 id =1 ; 
+}
+
+
+message GetUserResponse {
+    User user = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+
+
+message ListUsersRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7; 
+}
+
+message ListUsersResponse {
+    repeated User users = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE
+message UpdateUserRequest {
+    int32 id = 1;
+    string email_address = 2;
+    string name = 3;
+}
+
+message UpdateUserResponse {
+    User user = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE
+message DeleteUserRequest {
+    int32 id = 1;
+}
+
+message DeleteUserResponse {
+    bool success = 1;
+    string message = 2;
+}

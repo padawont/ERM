@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/core/vendor.proto";
+package functions.primary.core.vendor;
+
+service VendorService {
+  rpc CreateVendor(models.primary.core.vendor.CreateVendorRequest) returns (models.primary.core.vendor.CreateVendorResponse);
+  rpc GetVendor(models.primary.core.vendor.GetVendorRequest) returns (models.primary.core.vendor.GetVendorResponse);
+  rpc ListVendors(models.primary.core.vendor.ListVendorsRequest) returns (models.primary.core.vendor.ListVendorsResponse);
+  rpc UpdateVendor(models.primary.core.vendor.UpdateVendorRequest) returns (models.primary.core.vendor.UpdateVendorResponse);
+  rpc DeleteVendor(models.primary.core.vendor.DeleteVendorRequest) returns (models.primary.core.vendor.DeleteVendorResponse);
+}

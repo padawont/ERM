@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/account/core/account.proto";
+package functions.account.core.account;
+
+
+
+service AccountService {
+  rpc CreateAccount(models.account.core.account.CreateAccountRequest) returns (models.account.core.account.CreateAccountResponse);
+  rpc GetAccount(models.account.core.account.GetAccountRequest) returns (models.account.core.account.GetAccountResponse);
+  rpc ListAccounts(models.account.core.account.ListAccountsRequest) returns (models.account.core.account.ListAccountsResponse);
+  rpc UpdateAccount(models.account.core.account.UpdateAccountRequest) returns (models.account.core.account.UpdateAccountResponse);
+  rpc DeleteAccount(models.account.core.account.DeleteAccountRequest) returns (models.account.core.account.DeleteAccountResponse);
+}
+

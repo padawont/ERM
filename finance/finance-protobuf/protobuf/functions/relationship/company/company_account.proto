@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/relationship/company/company_account.proto";
+package functions.relationship.company.company_account;
+
+service CompanyAccountService {
+  rpc CreateCompanyAccount(models.relationship.company.company_account.CreateCompanyAccountRequest) returns (models.relationship.company.company_account.CreateCompanyAccountResponse);
+  rpc GetCompanyAccount(models.relationship.company.company_account.GetCompanyAccountRequest) returns (models.relationship.company.company_account.GetCompanyAccountResponse);
+  rpc ListCompanyAccounts(models.relationship.company.company_account.ListCompanyAccountsRequest) returns (models.relationship.company.company_account.ListCompanyAccountsResponse);
+  rpc UpdateCompanyAccount(models.relationship.company.company_account.UpdateCompanyAccountRequest) returns (models.relationship.company.company_account.UpdateCompanyAccountResponse);
+  rpc DeleteCompanyAccount(models.relationship.company.company_account.DeleteCompanyAccountRequest) returns (models.relationship.company.company_account.DeleteCompanyAccountResponse);
+}

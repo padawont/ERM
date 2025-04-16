@@ -1,0 +1,85 @@
+syntax = "proto3";
+package models.relationship.fiance.account_invoice ;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message AccountInvoice {
+    int32 id = 1;
+    int32 account_id = 2;
+    int32 invoice_id = 3;
+    bool account_is_payable = 4;
+}
+
+// POST message
+message CreateAccountInvoiceRequest {
+    int32 account_id = 1;
+    int32 invoice_id = 2;
+    bool account_is_payable = 3;
+}
+
+message CreateAccountInvoiceResponse {
+    AccountInvoice account_invoice = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetAccountInvoiceRequest {
+    int32 id = 1;
+}
+
+message GetAccountInvoiceResponse {
+    AccountInvoice account_invoice = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListAccountInvoicesRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListAccountInvoicesResponse {
+    repeated AccountInvoice account_invoices = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateAccountInvoiceRequest {
+    int32 id = 1;
+    int32 account_id = 2;
+    int32 invoice_id = 3;
+    bool account_is_payable = 4;
+}
+
+message UpdateAccountInvoiceResponse {
+    AccountInvoice account_invoice = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteAccountInvoiceRequest {
+    int32 id = 1;
+}
+
+message DeleteAccountInvoiceResponse {
+    bool success = 1;
+    string message = 2;
+}

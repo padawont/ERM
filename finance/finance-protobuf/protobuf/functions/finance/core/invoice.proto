@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/finance/core/invoice.proto";
+package functions.finance.core.invoice;
+
+service InvoiceService {
+  rpc CreateInvoice(models.finace.core.invoice.CreateInvoiceRequest) returns (models.finace.core.invoice.CreateInvoiceResponse);
+  rpc GetInvoice(models.finace.core.invoice.GetInvoiceRequest) returns (models.finace.core.invoice.GetInvoiceResponse);
+  rpc ListInvoices(models.finace.core.invoice.ListInvoicesRequest) returns (models.finace.core.invoice.ListInvoicesResponse);
+  rpc UpdateInvoice(models.finace.core.invoice.UpdateInvoiceRequest) returns (models.finace.core.invoice.UpdateInvoiceResponse);
+  rpc DeleteInvoice(models.finace.core.invoice.DeleteInvoiceRequest) returns (models.finace.core.invoice.DeleteInvoiceResponse);
+}

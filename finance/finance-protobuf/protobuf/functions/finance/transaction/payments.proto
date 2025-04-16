@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/finance/transaction/payments.proto";
+package functions.finance.transaction.payment;
+
+service PaymentService {
+  rpc CreatePayment(models.finace.transaction.payment.CreatePaymentRequest) returns (models.finace.transaction.payment.CreatePaymentResponse);
+  rpc GetPayment(models.finace.transaction.payment.GetPaymentRequest) returns (models.finace.transaction.payment.GetPaymentResponse);
+  rpc ListPayments(models.finace.transaction.payment.ListPaymentsRequest) returns (models.finace.transaction.payment.ListPaymentsResponse);
+  rpc UpdatePayment(models.finace.transaction.payment.UpdatePaymentRequest) returns (models.finace.transaction.payment.UpdatePaymentResponse);
+  rpc DeletePayment(models.finace.transaction.payment.DeletePaymentRequest) returns (models.finace.transaction.payment.DeletePaymentResponse);
+}

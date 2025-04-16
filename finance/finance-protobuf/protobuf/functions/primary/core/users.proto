@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/core/users.proto";
+package functions.primary.core.user;
+
+service UserService {
+  rpc CreateUser(models.primary.core.user.CreateUserRequest) returns (models.primary.core.user.CreateUserResponse);
+  rpc GetUser(models.primary.core.user.GetUserRequest) returns (models.primary.core.user.GetUserResponse);
+  rpc ListUsers(models.primary.core.user.ListUsersRequest) returns (models.primary.core.user.ListUsersResponse);
+  rpc UpdateUser(models.primary.core.user.UpdateUserRequest) returns (models.primary.core.user.UpdateUserResponse);
+  rpc DeleteUser(models.primary.core.user.DeleteUserRequest) returns (models.primary.core.user.DeleteUserResponse);
+}

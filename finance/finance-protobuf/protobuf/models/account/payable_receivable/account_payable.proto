@@ -1,0 +1,91 @@
+syntax = "proto3";
+package models.account.payable_receivable.account_payable;
+
+message Filter {
+    string field = 1;
+    string operator = 2;
+    string value = 3;
+}
+
+message Sorting {
+    string field = 1;
+    bool ascending = 2;
+}
+
+// core message
+message AccountPayable {
+    int32 id = 1;
+    int32 currency_id = 2;
+    string due_date = 3;  // Using string for date
+    string status = 4;    // Using string for bpchar
+    double amount = 5;    // Using double for numeric
+    string terms = 6;
+}
+
+// POST message
+message CreateAccountPayableRequest {
+    int32 currency_id = 1;
+    string due_date = 2;
+    string status = 3;
+    double amount = 4;
+    string terms = 5;
+}
+
+message CreateAccountPayableResponse {
+    AccountPayable account_payable = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// READ message
+message GetAccountPayableRequest {
+    int32 id = 1;
+}
+
+message GetAccountPayableResponse {
+    AccountPayable account_payable = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+message ListAccountPayablesRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    repeated Filter filter = 4;
+    int32 offset = 5;
+    int32 limit = 6;
+    Sorting sort = 7;
+}
+
+message ListAccountPayablesResponse {
+    repeated AccountPayable account_payables = 1;
+    int32 total_count = 2;
+    bool success = 3;
+    string message = 4;
+}
+
+// UPDATE message
+message UpdateAccountPayableRequest {
+    int32 id = 1;
+    int32 currency_id = 2;
+    string due_date = 3;
+    string status = 4;
+    double amount = 5;
+    string terms = 6;
+}
+
+message UpdateAccountPayableResponse {
+    AccountPayable account_payable = 1;
+    bool success = 2;
+    string message = 3;
+}
+
+// DELETE message
+message DeleteAccountPayableRequest {
+    int32 id = 1;
+}
+
+message DeleteAccountPayableResponse {
+    bool success = 1;
+    string message = 2;
+}

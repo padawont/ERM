@@ -1,283 +1,246 @@
 ```Mermaid
 erDiagram
-
-
-company ||--o{ office :""
-office ||--|| location:""
-company ||--o{ company_user :""
-company_user ||--o{ user :""
-user ||--o{ role_user :""
-role_user ||--o{ role :""
-role_permisstions ||--o{ role : ""
-role_permisstions ||--o{ permisstions :""
-invoice ||--|| list_item : ""
-invoice ||--|| incoterms : ""
-invoice ||--|| currency : ""
-account ||--|| finace_period : ""
-company ||--o{ company_account : ""
-company_account ||--o{ account :""
-account ||--||  account_details :""
-company_account ||--o{ account_Receivable : "" 
-company_account ||--o{ account_payable : ""
-account_payable ||--o{ account_payable_vendor : ""
-account_payable_vendor ||--o{ vendor : ""
-account_Receivable ||--o{ account_Receivable_customer : ""
-account_Receivable_customer ||--o{ customers : ""
-account_payable ||--o{ account_invoice : ""
-account_Receivable ||--o{ account_invoice : ""
-account_invoice ||--o{ invoice : ""
-currency ||--|| account_payable : ""
-currency ||--|| account_Receivable: ""
-currency ||--|| account : ""
-account ||--o{ tax : ""
-account_payable ||--o{ tax : ""
-account_Receivable ||--o{ tax : ""
-tax ||--o{ tax_money : ""
-tax_money ||--o{ checks : ""
-tax_money ||--o{ payments : ""
-tax_money ||--o{ invoice : ""
-tax_money ||--o{ income : ""
-currency ||--|| checks : ""
-currency ||--|| payments : ""
-currency ||--|| income : ""
-
-
-
-
-company {
-    Int id PK
-    string email_address
-    string name
-    date timestamp
-} 
-
-
-office {
-    int id PK 
-    int company FK
-}
-
-location {
-    int id PK 
-    int office_id FK
-    string adddress 
-    string city 
-    string country 
-}
-
-
-
-income {
-    int id PK
-    int company_id FK
-    int currency_id FK
-    int amount 
-}
-
-
-company_user {
-    Int id PK 
-    Int user_id FK
-    Int company_id FK
+    %% ——— PRIMARY ENTITIES ———
+    %% -- Core Business Entities --
+    company {
+        id serial PK
+        email_address varchar
+        name varchar
+        timestamp date
+    }
+    users {
+        id serial PK
+        email_address varchar
+        name varchar
+    }
+    customers {
+        id serial PK
+        phone_number varchar
+        email varchar
+    }
+    vendor {
+        id serial PK
+        email varchar
+        phone_number varchar
+    }
     
-}
-
-
-user {
-    Int id PK
-    string email_address
-    string name 
-}
-
-role_user {
-    Int id PK
-    Int role_id FK
-    Int user_id FK
-}
-
-role {
-    Int id PK
-    string title
-    string desrciption
-} 
-
-
-role_permisstions {
-    Int id PK
-    Int permisstions_id FK
-    Int role_id FK
-} 
-
-permisstions {
-    Int id PK
-    string desrciption
-    string name
-
-}
-
-
-
-
-company_account {
-    int id PK
-    int company_id FK
-    int account_id FK 
-}
-
-
-
-account_payable {
-    int id PK
-    int currency_id FK
-    Date due_date
-    enum status
-    float amount
-    string terms
-}
-
-
-
-account_invoice {
-    int id PK
-    int account_id FK
-    int invoice FK
-    bool account_is_payable
-}
-
-account_payable_vendor {
-    int id PK
-    int account_payable FK
-    int vendor FK
-}
-
-
-account_Receivable {
-    int id PK
-    int currency FK
-    Date due_date 
-    enum status
-    string terms
-    float amount 
-}
-
-account_Receivable_customer {
-    int id PK
-    int account_Receivable FK
-    int customer FK
-}
-
-
-account {
-    Int id PK
-    int currency FK
-    decimal credit
-    decimal debit  
-    enum account_type 
-}
-account_details {
-    Int id PK 
-    Int acount FK 
-    string Bank_name 
-    string Branch_name 
-    string swift_code
-    string ifsc_code 
-    int routing_number
-    string IBAN 
-    string bank_website 
-}
-
-
-
-
-
-tax {
-    Int id PK
-    Int account FK
-    int location FK
-    int tax_rate 
-    int tax_total
-}
-
-
-tax_money {
-    int id PK
-    int tax_id
-    int money_id 
-    enum type
-}
-
-
-customers {
-    Int id PK 
-    Int number 
-    string email 
-}
-
-checks {
-    int id PK 
-    int account FK 
-    int currency_id FK
-    int amount 
-}
-
-
-payments {
-    int id PK
-    int company_id FK
-    int currency_id FK 
-    int amount 
-}
-
-
-
-invoice {
-    Int id PK
-    int invoice_number
-    Date starting_date
-    Date ending_date 
-    string sender_info 
-    float subtotal
-    string payment_instruections 
-    string notes
-    int currency_id FK
-    string incoterms FK
-}
-
-list_item {
-    int id PK
-    int quantitiy
-    string description
-    float unit_price
-    float total
-}
-
-incoterms {
-    int id PK
-    string name
-    string description
-}
-
-finace_period {
-    int id PK
-    int account FK
-    Date start_date
-    Date end_date 
-    enum status
-} 
-
-currency  {
-    int id PK
-    string currency_name
-    int currency_code
-    string country 
-    decimal exchange_rate
-}
-vendor {
-    int id PK 
-    string email 
-    int number
-}
-
-
-
+    %% -- Reference Entities --
+    currency {
+        id serial PK
+        currency_name varchar
+        currency_code varchar
+        country varchar
+        exchange_rate numeric
+    }
+    incoterms {
+        id serial PK
+        name varchar
+        description text
+    }
+    
+    %% -- Authorization Entities --
+    permissions {
+        id serial PK
+        description text
+        name varchar
+    }
+    role {
+        id serial PK
+        title varchar
+        description text
+    }
+    
+    %% ——— ACCOUNT ENTITIES ———
+    %% -- Core Account --
+    account {
+        id serial PK
+        currency_id int FK
+        credit float
+        debit float
+        account_type bpchar
+        created_at timestamp
+    }
+    account_details {
+        id serial PK
+        account_id int FK
+        bank_name varchar
+        branch_name varchar
+        swift_code varchar
+        ifsc_code varchar
+        routing_number varchar
+        iban varchar
+        bank_website varchar
+    }
+    finance_period {
+        id serial PK
+        account_id int FK
+        start_date date
+        end_date date
+        status bpchar
+    }
+    
+    %% -- Accounts Payable/Receivable --
+    account_payable {
+        id serial PK
+        currency_id int FK
+        due_date date
+        status bpchar
+        amount numeric
+        terms text
+    }
+    account_payable_vendor {
+        id serial PK
+        account_payable_id int FK
+        vendor_id int FK
+    }
+    account_receivable {
+        id serial PK
+        currency_id int FK
+        due_date date
+        status bpchar
+        terms text
+        amount numeric
+    }
+    account_receivable_customer {
+        id serial PK
+        account_receivable_id int FK
+        customer_id int FK
+    }
+    
+    %% ——— FINANCIAL ENTITIES ———
+    %% -- Transaction Records --
+    checks {
+        id serial PK
+        account_id int FK
+        currency_id int FK
+        amount numeric
+    }
+    income {
+        id serial PK
+        company_id int FK
+        currency_id int FK
+        amount numeric
+    }
+    payments {
+        id serial PK
+        company_id int FK
+        currency_id int FK
+        amount numeric
+    }
+    
+    %% -- Invoicing --
+    invoice {
+        id serial PK
+        invoice_number int
+        starting_date date
+        ending_date date
+        sender_info text
+        subtotal numeric
+        payment_instructions text
+        notes text
+        currency_id int FK
+        incoterms_id int FK
+    }
+    list_item {
+        id serial PK
+        quantity int
+        description text
+        unit_price numeric
+        total numeric
+        invoice_id int FK
+    }
+    
+    %% -- Taxation --
+    tax {
+        id serial PK
+        account_id int FK
+        location_id int FK
+        tax_rate numeric
+        tax_total numeric
+    }
+    tax_money {
+        id serial PK
+        tax_id int FK
+        money_id int FK
+        money_type bpchar
+    }
+    
+    %% ——— RELATIONSHIP ENTITIES ———
+    %% -- Company Relationships --
+    company_account {
+        id serial PK
+        company_id int FK
+        account_id int FK
+    }
+    company_user {
+        id serial PK
+        user_id int FK
+        company_id int FK
+    }
+    office {
+        id serial PK
+        company_id int FK
+    }
+    location {
+        id serial PK
+        office_id int FK
+        address varchar
+        city varchar
+        country varchar
+    }
+    
+    %% -- User Relationships --
+    role_permissions {
+        id serial PK
+        permission_id int FK
+        role_id int FK
+    }
+    role_user {
+        id serial PK
+        role_id int FK
+        user_id int FK
+    }
+    
+    %% -- Financial Relationships --
+    account_invoice {
+        id serial PK
+        account_id int FK
+        invoice_id int FK
+        account_is_payable bool
+    }
+    
+    %% ——— RELATIONSHIPS ———
+    account ||--|| currency : currency_id
+    account_details ||--|| account : account_id
+    account_payable ||--|| currency : currency_id
+    account_payable_vendor ||--|| account_payable : account_payable_id
+    account_payable_vendor ||--|| vendor : vendor_id
+    account_receivable ||--|| currency : currency_id
+    account_receivable_customer ||--|| account_receivable : account_receivable_id
+    account_receivable_customer ||--|| customers : customer_id
+    checks ||--|| account : account_id
+    checks ||--|| currency : currency_id
+    company_account ||--|| company : company_id
+    company_account ||--|| account : account_id
+    company_user ||--|| users : user_id
+    company_user ||--|| company : company_id
+    finance_period ||--|| account : account_id
+    income ||--|| company : company_id
+    income ||--|| currency : currency_id
+    invoice ||--|| currency : currency_id
+    invoice ||--o{ incoterms : incoterms_id
+    list_item ||--|| invoice : invoice_id
+    office ||--|| company : company_id
+    payments ||--|| company : company_id
+    payments ||--|| currency : currency_id
+    role_permissions ||--|| permissions : permission_id
+    role_permissions ||--|| role : role_id
+    role_user ||--|| role : role_id
+    role_user ||--|| users : user_id
+    account_invoice ||--|| account : account_id
+    account_invoice ||--|| invoice : invoice_id
+    location ||--|| office : office_id
+    tax ||--|| account : account_id
+    tax ||--|| location : location_id
+    tax_money ||--|| tax : tax_id
 ```

@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/core/customers.proto";
+package functions.primary.core.customer;
+
+service CustomerService {
+  rpc CreateCustomer(models.primary.core.customer.CreateCustomerRequest) returns (models.primary.core.customer.CreateCustomerResponse);
+  rpc GetCustomer(models.primary.core.customer.GetCustomerRequest) returns (models.primary.core.customer.GetCustomerResponse);
+  rpc ListCustomers(models.primary.core.customer.ListCustomersRequest) returns (models.primary.core.customer.ListCustomersResponse);
+  rpc UpdateCustomer(models.primary.core.customer.UpdateCustomerRequest) returns (models.primary.core.customer.UpdateCustomerResponse);
+  rpc DeleteCustomer(models.primary.core.customer.DeleteCustomerRequest) returns (models.primary.core.customer.DeleteCustomerResponse);
+}

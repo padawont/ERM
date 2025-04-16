@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/relationship/finance/account_invoice.proto";
+package functions.relationship.finance.account_invoice;
+
+service AccountInvoiceService {
+  rpc CreateAccountInvoice(models.relationship.fiance.account_invoice.CreateAccountInvoiceRequest) returns (models.relationship.fiance.account_invoice.CreateAccountInvoiceResponse);
+  rpc GetAccountInvoice(models.relationship.fiance.account_invoice.GetAccountInvoiceRequest) returns (models.relationship.fiance.account_invoice.GetAccountInvoiceResponse);
+  rpc ListAccountInvoices(models.relationship.fiance.account_invoice.ListAccountInvoicesRequest) returns (models.relationship.fiance.account_invoice.ListAccountInvoicesResponse);
+  rpc UpdateAccountInvoice(models.relationship.fiance.account_invoice.UpdateAccountInvoiceRequest) returns (models.relationship.fiance.account_invoice.UpdateAccountInvoiceResponse);
+  rpc DeleteAccountInvoice(models.relationship.fiance.account_invoice.DeleteAccountInvoiceRequest) returns (models.relationship.fiance.account_invoice.DeleteAccountInvoiceResponse);
+}

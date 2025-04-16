@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/authorization/role.proto";
+package functions.primary.authorization.role;
+
+service RoleService {
+  rpc CreateRole(models.primary.authoization.role.CreateRoleRequest) returns (models.primary.authoization.role.CreateRoleResponse);
+  rpc GetRole(models.primary.authoization.role.GetRoleRequest) returns (models.primary.authoization.role.GetRoleResponse);
+  rpc ListRoles(models.primary.authoization.role.ListRolesRequest) returns (models.primary.authoization.role.ListRolesResponse);
+  rpc UpdateRole(models.primary.authoization.role.UpdateRoleRequest) returns (models.primary.authoization.role.UpdateRoleResponse);
+  rpc DeleteRole(models.primary.authoization.role.DeleteRoleRequest) returns (models.primary.authoization.role.DeleteRoleResponse);
+}

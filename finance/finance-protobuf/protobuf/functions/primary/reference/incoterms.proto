@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/reference/incoterms.proto";
+package functions.primary.reference.incoterm;
+
+service IncotermService {
+  rpc CreateIncoterm(models.primary.reference.incoterm.CreateIncotermRequest) returns (models.primary.reference.incoterm.CreateIncotermResponse);
+  rpc GetIncoterm(models.primary.reference.incoterm.GetIncotermRequest) returns (models.primary.reference.incoterm.GetIncotermResponse);
+  rpc ListIncoterms(models.primary.reference.incoterm.ListIncotermsRequest) returns (models.primary.reference.incoterm.ListIncotermsResponse);
+  rpc UpdateIncoterm(models.primary.reference.incoterm.UpdateIncotermRequest) returns (models.primary.reference.incoterm.UpdateIncotermResponse);
+  rpc DeleteIncoterm(models.primary.reference.incoterm.DeleteIncotermRequest) returns (models.primary.reference.incoterm.DeleteIncotermResponse);
+}

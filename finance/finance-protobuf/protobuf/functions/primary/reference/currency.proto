@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "finance-protobuf/protobuf/models/primary/reference/currency.proto";
+package functions.primary.reference.currency;
+
+service CurrencyService {
+  rpc CreateCurrency(models.primary.reference.currency.CreateCurrencyRequest) returns (models.primary.reference.currency.CreateCurrencyResponse);
+  rpc GetCurrency(models.primary.reference.currency.GetCurrencyRequest) returns (models.primary.reference.currency.GetCurrencyResponse);
+  rpc ListCurrencies(models.primary.reference.currency.ListCurrenciesRequest) returns (models.primary.reference.currency.ListCurrenciesResponse);
+  rpc UpdateCurrency(models.primary.reference.currency.UpdateCurrencyRequest) returns (models.primary.reference.currency.UpdateCurrencyResponse);
+  rpc DeleteCurrency(models.primary.reference.currency.DeleteCurrencyRequest) returns (models.primary.reference.currency.DeleteCurrencyResponse);
+}
